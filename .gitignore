@@ -1,0 +1,9 @@
+# Folders
+node_modules
+.vscode
+dist
+devs
+
+# Dev Files
+*.env
+*.code-workspace
