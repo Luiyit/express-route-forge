@@ -7,9 +7,6 @@ import {
 import CoreController from './CoreController';
 import { Method, RouteConfig, RouterArgs } from 'src/types/route';
 import { ControllerI, CoreHandler } from 'src/types/controller';
-// import CoreController from '@express/router/CoreController';
-// import { Method, RouteConfig, RouterArgs } from '@libTypes/route';
-// import { ControllerI, CoreHandler } from '@libTypes/controller';
 
 export default class CoreExpressRouter {
   /**

@@ -1,23 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
-
-// import CoreController from '@express/router/CoreController';
-// import AppError from '@errors/AppError';
 import AppError from "src/errors/AppError";
-import CoreController from "src/express/router/CoreController";
+
+interface Handler {
+  handlerError(error: AppError): void;
+}
 
 /**
  * Simple wrapper to handle the validation error
  *
  * @param self Caller class
  * @param error Error to be handled
+ * 
  * @returns {boolean} True if the error was handled
  */
-export function handlerError(self: CoreController, error: unknown) {
-  if (!(self instanceof CoreController) || !(error instanceof AppError))
+export function handlerError(self: unknown, error: unknown) {
+  if (!(typeof (self as Handler).handlerError === 'function') || !(error instanceof AppError))
     throw error;
 
-  self.handlerError(error);
+  (self as Handler).handlerError(error);
 }
 
 /**
@@ -50,14 +51,14 @@ export default function ErrorListener(
       /** Handler async error */
       if (isAsync) {
         return result.catch((error: unknown) => {
-          handlerError(this as CoreController, error);
+          handlerError(this, error);
         });
       }
 
       return result;
     } catch (error) {
       /** Handler async error */
-      handlerError(this as CoreController, error);
+      handlerError(this, error);
     }
   };
 

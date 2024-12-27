@@ -1,4 +1,3 @@
-// import { Callback, Method } from '@libTypes/route';
 import { Callback, Method } from "src/types/route";
 
 export const callbackList: Callback[] = [

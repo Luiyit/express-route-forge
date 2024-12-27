@@ -81,4 +81,16 @@ export default class CoreController {
    * @returns {Promise<void>}
    */
   protected async initialize() {}
+
+  get body(){
+    return this.req.body;
+  }
+  
+  get query(){
+    return this.req.query;
+  }
+  
+  get params(){
+    return this.req.params;
+  }
 }

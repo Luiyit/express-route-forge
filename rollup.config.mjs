@@ -9,12 +9,12 @@ export default {
     {
       file: 'dist/index.cjs.js',
       format: 'cjs',
-      sourcemap: true,
+      sourcemap: false,
     },
     {
       file: 'dist/index.esm.js',
       format: 'esm',
-      sourcemap: true,
+      sourcemap: false,
     },
   ],
   plugins: [
@@ -23,5 +23,5 @@ export default {
     typescript(),
     json(),
   ],
-  external: [],
+  external:['firebase-admin', 'express', 'joi'],
 };

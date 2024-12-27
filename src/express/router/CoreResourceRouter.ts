@@ -1,14 +1,3 @@
-// import {
-//   Callback,
-//   Method,
-//   Middleware,
-//   ResourceConfig,
-//   RouteConfig,
-// } from '@libTypes/route';
-// import CoreController from '@express/router/CoreController';
-// import { callbackList, callbackMethods } from '@constants/express';
-// import CoreExpressRouter from '@express/router/CoreExpressRouter';
-// import { ControllerI } from '@libTypes/controller';
 import { Callback, Method, Middleware, ResourceConfig, RouteConfig } from "src/types/route";
 import CoreController from "./CoreController";
 import { callbackList, callbackMethods } from "src/constants/express";

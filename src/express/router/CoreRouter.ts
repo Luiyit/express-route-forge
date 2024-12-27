@@ -1,6 +1,3 @@
-// import CoreController from '@express/router/CoreController';
-// import CoreExpressRouter from '@express/router/CoreExpressRouter';
-// import { Middleware, ResourceConfig, RouteConfig } from '@libTypes/route';
 import { Middleware, ResourceConfig, RouteConfig } from 'src/types/route';
 import CoreController from './CoreController';
 import CoreResourceRouter from './CoreResourceRouter';

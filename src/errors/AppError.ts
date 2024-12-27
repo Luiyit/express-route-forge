@@ -1,5 +1,3 @@
-// import { ErrorName } from '@libTypes/errors';
-
 import { ErrorName } from "src/types/errors";
 
 export default class AppError extends Error {

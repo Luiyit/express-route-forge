@@ -1,5 +1,3 @@
-// import CoreController from '@express/router/CoreController';
-// import { ControllerI, ParamsDictionary } from '@libTypes/controller';
 import { RequestHandler } from 'express';
 import { ParsedQs } from "qs";
 import CoreController from 'src/express/router/CoreController';

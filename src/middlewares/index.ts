@@ -1,0 +1,1 @@
+export { default as authenticateFirebase } from './auth/authenticateFirebase';

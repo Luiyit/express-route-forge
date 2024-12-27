@@ -10,7 +10,7 @@ import { JoiError } from 'src/errors';
  *
  * @returns Valid and full InputType object or Errors
  */
-function validate<DataType = unknown, ReturnType = DataType>(
+function validateJoiSchema<DataType = unknown, ReturnType = DataType>(
   data: DataType,
   schema: Joi.ObjectSchema<ReturnType>,
   options: Joi.ValidationOptions = { abortEarly: false },
@@ -36,4 +36,4 @@ function validate<DataType = unknown, ReturnType = DataType>(
   throw new JoiError(error.message, prettyErrors);
 }
 
-export { validate };
+export default validateJoiSchema;
