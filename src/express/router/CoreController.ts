@@ -55,7 +55,7 @@ export default class CoreController {
    *
    * @param error AppError error instance
    */
-  public async handlerError(error: AppError) {
+  public async knowErrorHandler(error: AppError) {
     if(error instanceof AppError)
       return this.response.error(
         error.message,
@@ -64,7 +64,7 @@ export default class CoreController {
         error.details,
       );
 
-    this.unknownHandlerError(error);
+    this.unknownErrorHandler(error);
   }
 
   /**
@@ -73,7 +73,7 @@ export default class CoreController {
    * 
    * @param error Unknown error
    */
-  protected async unknownHandlerError(error: unknown): Promise<void> {
+  protected async unknownErrorHandler(error: unknown): Promise<void> {
     throw error;
   }
 

@@ -3,8 +3,8 @@
 import AppError from "src/errors/AppError";
 
 interface Handler {
-  handlerError(error: AppError): void;
-  unknownHandlerError(error: unknown): Promise<void>;
+  knowErrorHandler(error: AppError): void;
+  unknownErrorHandler(error: unknown): Promise<void>;
 }
 
 /**
@@ -16,11 +16,11 @@ interface Handler {
  * @returns {boolean} True if the error was handled
  */
 export function handlerError(self: unknown, error: unknown) {
-  if ((typeof (self as Handler).handlerError === 'function') && error instanceof AppError)
-    (self as Handler).handlerError(error);
+  if ((typeof (self as Handler).knowErrorHandler === 'function') && error instanceof AppError)
+    (self as Handler).knowErrorHandler(error);
 
-  else if ((typeof (self as Handler).unknownHandlerError === 'function'))
-    (self as Handler).unknownHandlerError(error)
+  else if ((typeof (self as Handler).unknownErrorHandler === 'function'))
+    (self as Handler).unknownErrorHandler(error)
   
   else throw error;
 }
