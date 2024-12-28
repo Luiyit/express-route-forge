@@ -1,11 +1,11 @@
-import { ErrorName } from "src/types/errors";
+import { ErrorName, HttpCode } from "src/types/errors";
 
 export default class AppError extends Error {
   constructor(
     message: string,
-    public name: ErrorName = ErrorName.App,
-    public details: Record<string, string> = {},
-    public code: number = 422,
+    public name: ErrorName | string = ErrorName.App,
+    public details: Record<string, unknown> = {},
+    public code: number = HttpCode.UnprocessableEntity,
   ) {
     super(message);
   }

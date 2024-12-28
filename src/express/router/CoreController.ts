@@ -49,29 +49,32 @@ export default class CoreController {
 
   /**
    * Controller util method to send a response with the error
-   * You can create your custom errors and extends from IAppError
-   * Keep in mind if the error.name is not defined, the error will be forwarded again.
+   * You can create your custom errors and extends from IAppError.
    *
-   * For custom errors. you need to override the handlerError method
-   * the default case is the super implementation
+   * If you want to change this behavior, you need to override the handlerError method
    *
    * @param error AppError error instance
    */
   public async handlerError(error: AppError) {
-    switch (error.name) {
-      case ErrorName.App:
-      case ErrorName.Joi:
-        this.response.error(
-          error.message,
-          error.code,
-          error.name,
-          error.details,
-        );
-        break;
+    if(error instanceof AppError)
+      return this.response.error(
+        error.message,
+        error.code,
+        error.name,
+        error.details,
+      );
 
-      default:
-        throw error;
-    }
+    this.unknownHandlerError(error);
+  }
+
+  /**
+   * Handler unknown errors into your controller.
+   * Default behavior is to throw the error again
+   * 
+   * @param error Unknown error
+   */
+  protected async unknownHandlerError(error: unknown): Promise<void> {
+    throw error;
   }
 
   /**

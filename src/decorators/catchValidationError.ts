@@ -4,6 +4,7 @@ import AppError from "src/errors/AppError";
 
 interface Handler {
   handlerError(error: AppError): void;
+  unknownHandlerError(error: unknown): Promise<void>;
 }
 
 /**
@@ -15,10 +16,13 @@ interface Handler {
  * @returns {boolean} True if the error was handled
  */
 export function handlerError(self: unknown, error: unknown) {
-  if (!(typeof (self as Handler).handlerError === 'function') || !(error instanceof AppError))
-    throw error;
+  if ((typeof (self as Handler).handlerError === 'function') && error instanceof AppError)
+    (self as Handler).handlerError(error);
 
-  (self as Handler).handlerError(error);
+  else if ((typeof (self as Handler).unknownHandlerError === 'function'))
+    (self as Handler).unknownHandlerError(error)
+  
+  else throw error;
 }
 
 /**

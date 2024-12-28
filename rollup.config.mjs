@@ -23,5 +23,5 @@ export default {
     typescript(),
     json(),
   ],
-  external:['firebase-admin', 'express', 'joi'],
+  external:['express', 'firebase-admin', 'joi'],
 };

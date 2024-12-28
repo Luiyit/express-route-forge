@@ -25,7 +25,7 @@ export default class CoreResponse {
       success: false,
       error: message,
       details: {
-        name,
+        source: name,
         ...extra,
       },
     });
