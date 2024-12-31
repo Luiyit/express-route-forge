@@ -33,7 +33,15 @@
     "mongodb",
     "sentry"
   ],
-  "author": "Luiyit Hernandez",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Luiyit/express-route-forge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Luiyit/express-route-forge/issues"
+  },
+  "homepage": "https://github.com/Luiyit/express-route-forge/blob/main/README.md",
+  "author": "Luiyit Hernandez <luiyit.hernandez@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.1",
