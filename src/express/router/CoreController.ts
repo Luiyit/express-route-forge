@@ -1,14 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import CoreResponse from './CoreResponse';
-import { CoreHandler } from 'src/types/controller';
-import ErrorListener from 'src/decorators/catchValidationError';
-import AppError from 'src/errors/AppError';
-import { ErrorName } from 'src/types/errors';
-// import { CoreHandler } from '@libTypes/controller';
-// import CoreResponse from '@express/router/CoreResponse';
-// import ErrorListener from '@decorators/catchValidationError';
-// import AppError from '@errors/AppError';
-// import { ErrorName } from '@libTypes/errors';
+import { CoreHandler } from '../../types/controller';
+import ErrorListener from '../../decorators/catchValidationError';
+import AppError from '../../errors/AppError';
 
 export default class CoreController {
   /**

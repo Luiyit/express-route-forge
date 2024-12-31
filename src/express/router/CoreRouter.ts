@@ -1,4 +1,4 @@
-import { Middleware, ResourceConfig, RouteConfig } from 'src/types/route';
+import { Middleware, ResourceConfig, RouteConfig } from '../../types/route';
 import CoreController from './CoreController';
 import CoreResourceRouter from './CoreResourceRouter';
 import CoreExpressRouter from './CoreExpressRouter';

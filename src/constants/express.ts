@@ -1,4 +1,4 @@
-import { Callback, Method } from "src/types/route";
+import { Callback, Method } from "../types/route";
 
 export const callbackList: Callback[] = [
   'index',

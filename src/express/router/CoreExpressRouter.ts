@@ -5,8 +5,8 @@ import {
   Response,
 } from 'express';
 import CoreController from './CoreController';
-import { Method, RouteConfig, RouterArgs } from 'src/types/route';
-import { ControllerI, CoreHandler } from 'src/types/controller';
+import { Method, RouteConfig, RouterArgs } from '../../types/route';
+import { ControllerI, CoreHandler } from '../../types/controller';
 
 export default class CoreExpressRouter {
   /**

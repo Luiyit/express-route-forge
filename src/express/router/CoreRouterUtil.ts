@@ -1,4 +1,4 @@
-import { ResourceConfig, RouteConfig } from "src/types/route";
+import { ResourceConfig, RouteConfig } from "../../types/route";
 import CoreController from "./CoreController";
 import CoreRouter from "./CoreRouter";
 

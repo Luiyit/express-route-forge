@@ -1,8 +1,8 @@
-import { Callback, Method, Middleware, ResourceConfig, RouteConfig } from "src/types/route";
+import { Callback, Method, Middleware, ResourceConfig, RouteConfig } from "../../types/route";
 import CoreController from "./CoreController";
-import { callbackList, callbackMethods } from "src/constants/express";
+import { callbackList, callbackMethods } from "../../constants/express";
 import CoreExpressRouter from "./CoreExpressRouter";
-import { ControllerI } from "src/types/controller";
+import { ControllerI } from "../../types/controller";
 
 /**
  * Add a router resource

@@ -1,4 +1,4 @@
-import { ErrorName, HttpCode } from "src/types/errors";
+import { ErrorName, HttpCode } from "../types/errors";
 
 export default class AppError extends Error {
   constructor(

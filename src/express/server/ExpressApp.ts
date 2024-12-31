@@ -1,7 +1,7 @@
 import { Application } from "express";
-import requireDirectoryFiles from "src/utils/requireDirectoryFiles";
+import requireDirectoryFiles from "../../utils/requireDirectoryFiles";
 import * as http from 'http';
-import { AppConfig, AutoLoad } from "src/types/app";
+import { AppConfig, AutoLoad } from "../../types/app";
 import { CoreExpressRouter } from "../router";
 
 export default class ExpressApp {

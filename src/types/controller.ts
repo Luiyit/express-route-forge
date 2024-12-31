@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// import CoreController from '@express/router/CoreController';
 import { NextFunction, Request, Response } from 'express';
 import QueryString from 'qs';
 import CoreController from 'src/express/router/CoreController';

@@ -2,7 +2,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { FirebaseAuthError } from 'firebase-admin/lib/utils/error';
 import admin from 'firebase-admin';
-import { Middleware } from 'src/types';
+import { Middleware } from '../../types';
 
 /**
  * Check authorization firebase header

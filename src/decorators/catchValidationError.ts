@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
-import AppError from "src/errors/AppError";
+import AppError from "../errors/AppError";
 
 interface Handler {
   knowErrorHandler(error: AppError): void;

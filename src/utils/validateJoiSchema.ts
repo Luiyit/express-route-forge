@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { JoiError } from 'src/errors';
+import { JoiError } from '../errors';
 
 /**
  * Validate if an object respect the model schema

@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
 import { ParsedQs } from "qs";
-import CoreController from 'src/express/router/CoreController';
+import CoreController from '../express/router/CoreController';
 import { ControllerI, ParamsDictionary } from './controller';
 
 export enum Method {
