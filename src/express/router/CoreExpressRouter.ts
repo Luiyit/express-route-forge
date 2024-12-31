@@ -16,7 +16,8 @@ export default class CoreExpressRouter {
   public static expressRouter = expressRouter();
 
   public static getPath(...args: string[]): string {
-    return ['', ...args].join('/');
+    const path = [...args.filter(s => !!s)].join('/');
+    return path.startsWith('/') ? path : `/${path}`;
   }
 
   public static add<Controller extends CoreController>(
