@@ -11,6 +11,11 @@
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs.js",
       "import": "./dist/index.esm.js"
+    },
+    "./jest": {
+      "types": "./dist/new-file.d.ts",
+      "require": "./dist/new-file.cjs.js",
+      "import": "./dist/new-file.esm.js"
     }
   },
   "engines": {
