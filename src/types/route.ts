@@ -11,6 +11,8 @@ export enum Method {
   DELETE = 'DELETE',
 }
 
+export const MethodList: Method[] = Object.values(Method) as Method[];
+
 export enum MethodNames {
   GET = 'GET',
   POST = 'POST',

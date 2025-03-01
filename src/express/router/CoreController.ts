@@ -67,8 +67,8 @@ export default class CoreController {
    * 
    * @param error Unknown error
    */
-  protected async unknownErrorHandler(error: unknown): Promise<void> {
-    throw error;
+  public async unknownErrorHandler(error: unknown): Promise<void> {
+    this.next(error);
   }
 
   /**

@@ -84,12 +84,8 @@ export default class CoreExpressRouter {
       handler: CoreHandler,
     ) =>
     async (req: Request, res: Response, next: NextFunction) => {
-      try {
-        const instance = new controller(req, res, next, handler);
-        await instance.call();
-      } catch (error) {
-        next(error);
-      }
+      const instance = new controller(req, res, next, handler);
+      await instance.call();
     };
 
   private static logInfo(message: string): void {

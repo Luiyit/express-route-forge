@@ -1,5 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 
+Response
+
 export default class CoreResponse {
   constructor(
     public res: Response,

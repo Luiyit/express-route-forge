@@ -3,6 +3,7 @@ node_modules
 .vscode
 dist
 devs
+backups
 
 # Dev Files
 *.env

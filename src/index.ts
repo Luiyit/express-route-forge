@@ -5,3 +5,4 @@ export * from './express/index';
 export * from './types/index';
 export * from './utils/index';
 export * from './middlewares/index';
+export * from './mocks/index';
