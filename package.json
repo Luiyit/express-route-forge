@@ -2,19 +2,18 @@
   "name": "express-route-forge",
   "version": "0.3.1",
   "description": "Express JS router builder",
-  "type": "module",
-  "main": "dist/index.cjs.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs.js",
+      "require": "./dist/index.cjs",
       "import": "./dist/index.esm.js"
     },
     "./jest": {
       "types": "./dist/new-file.d.ts",
-      "require": "./dist/new-file.cjs.js",
+      "require": "./dist/new-file.cjs",
       "import": "./dist/new-file.esm.js"
     }
   },

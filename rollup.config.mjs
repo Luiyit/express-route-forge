@@ -8,7 +8,7 @@ export default [
     input: 'src/index.ts',
     output: [
       {
-        file: 'dist/index.cjs.js',
+        file: 'dist/index.cjs',
         format: 'cjs',
         sourcemap: false,
       },
@@ -30,7 +30,7 @@ export default [
     input: 'src/jest.ts',
     output: [
       {
-        file: 'dist/jest.cjs.js',
+        file: 'dist/jest.cjs',
         format: 'cjs'
       },
       {
