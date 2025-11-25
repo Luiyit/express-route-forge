@@ -1,6 +1,6 @@
 {
   "name": "express-route-forge",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Express JS router builder",
   "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
