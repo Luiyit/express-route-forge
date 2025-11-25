@@ -12,9 +12,34 @@
       "import": "./dist/index.esm.js"
     },
     "./jest": {
-      "types": "./dist/new-file.d.ts",
-      "require": "./dist/new-file.cjs",
-      "import": "./dist/new-file.esm.js"
+      "types": "./dist/jest.d.ts",
+      "require": "./dist/jest.cjs",
+      "import": "./dist/jest.esm.js"
+    },
+    "./utils/validateJoiSchema": {
+      "types": "./dist/utils/validateJoiSchema.d.ts",
+      "require": "./dist/utils/validateJoiSchema.cjs",
+      "import": "./dist/utils/validateJoiSchema.esm.js"
+    },
+    "./utils/requireDirectoryFiles": {
+      "types": "./dist/utils/requireDirectoryFiles.d.ts",
+      "require": "./dist/utils/requireDirectoryFiles.cjs",
+      "import": "./dist/utils/requireDirectoryFiles.esm.js"
+    },
+    "./utils/packageJson": {
+      "types": "./dist/utils/packageJson.d.ts",
+      "require": "./dist/utils/packageJson.cjs",
+      "import": "./dist/utils/packageJson.esm.js"
+    },
+    "./utils/firebase/admin": {
+      "types": "./dist/utils/firebase/admin.d.ts",
+      "require": "./dist/utils/firebase/admin.cjs",
+      "import": "./dist/utils/firebase/admin.esm.js"
+    },
+    "./utils/jest": {
+      "types": "./dist/utils/jest.d.ts",
+      "require": "./dist/utils/jest.cjs",
+      "import": "./dist/utils/jest.esm.js"
     }
   },
   "engines": {
