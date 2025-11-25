@@ -2,17 +2,28 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
-
-const plugins = [
-  resolve(),
-  commonjs(),
-  typescript(),
-  json(),
-];
+import path from 'path';
 
 const external = ['express', 'firebase-admin', 'joi'];
 
+function createPlugins(declarationDir) {
+  return [
+    resolve(),
+    commonjs(),
+    typescript({
+      declaration: true,
+      declarationDir: declarationDir,
+      rootDir: 'src',
+    }),
+    json(),
+  ];
+}
+
 function createBuildConfig(input, outputPath) {
+  // Extract directory from output path (e.g., 'utils/validateJoiSchema' -> 'utils')
+  const outputDir = path.dirname(outputPath);
+  const declarationDir = outputDir === '.' ? 'dist' : `dist/${outputDir}`;
+  
   return {
     input,
     output: [
@@ -20,14 +31,16 @@ function createBuildConfig(input, outputPath) {
         file: `dist/${outputPath}.cjs`,
         format: 'cjs',
         sourcemap: false,
+        exports: 'auto',
       },
       {
         file: `dist/${outputPath}.esm.js`,
         format: 'esm',
         sourcemap: false,
+        exports: 'auto',
       },
     ],
-    plugins,
+    plugins: createPlugins(declarationDir),
     external,
   };
 }
@@ -40,14 +53,16 @@ export default [
         file: 'dist/index.cjs',
         format: 'cjs',
         sourcemap: false,
+        exports: 'auto',
       },
       {
         file: 'dist/index.esm.js',
         format: 'esm',
         sourcemap: false,
+        exports: 'auto',
       },
     ],
-    plugins,
+    plugins: createPlugins('dist'),
     external,
   },
   {
@@ -55,14 +70,16 @@ export default [
     output: [
       {
         file: 'dist/jest.cjs',
-        format: 'cjs'
+        format: 'cjs',
+        exports: 'auto',
       },
       {
         file: 'dist/jest.esm.js',
-        format: 'esm'
+        format: 'esm',
+        exports: 'auto',
       }
     ],
-    plugins,
+    plugins: createPlugins('dist'),
     external,
   },
   // Individual utility exports
