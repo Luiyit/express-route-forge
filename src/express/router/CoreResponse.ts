@@ -39,4 +39,8 @@ export default class CoreResponse {
       data,
     });
   }
+
+  send(data: unknown, code: number = 200): void {
+    this.res.status(code).send(data);
+  }
 }
