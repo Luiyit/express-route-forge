@@ -121,6 +121,69 @@ Server is Fire at http://localhost:8000
 
 This is the basic configuration, but you can also create your own CoreRouter to encapsulate router behaviors, register middlewares, and create custom main controllers to manage authorizations and more.
 
+## Authentication
+
+Auth is pluggable and optional. The barrel exports a generic middleware plus
+the provider contract; concrete providers live in opt-in adapters so their
+dependencies are only needed if you use them.
+
+```ts
+import { authenticate, AuthProvider } from 'express-route-forge';
+
+const myProvider: AuthProvider = {
+  async authenticate(req) {
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) return null;                    // 401 (unless optional)
+    const user = await verifySomehow(token);    // throw => 401 with message
+    return { id: user.id, claims: user };
+  },
+};
+
+// Identity is stored in res.locals.authUser (configurable via localsKey)
+router.single({ ..., middlewares: [authenticate(myProvider)] });
+```
+
+### Firebase adapter
+
+Requires `firebase-admin` (optional peer, loaded lazily).
+
+```ts
+import { authenticateFirebase, firebaseAuthProvider, initWithServiceAccount }
+  from 'express-route-forge/adapters/firebase';
+
+// Back-compat with 0.3.x: identity in res.locals.firebaseUser
+app.use(authenticateFirebase());
+```
+
+### WorkOS adapter
+
+Requires `@workos-inc/node` and `jose` (optional peers, loaded lazily).
+Supports AuthKit Bearer access tokens (verified against the WorkOS JWKS) and
+sealed session cookies (needs a cookie parser upstream).
+
+```ts
+import { authenticateWorkos } from 'express-route-forge/adapters/workos';
+
+app.use(authenticateWorkos({
+  apiKey: process.env.WORKOS_API_KEY!,
+  clientId: process.env.WORKOS_CLIENT_ID!,
+  cookiePassword: process.env.WORKOS_COOKIE_PASSWORD, // for sealed sessions
+}));
+```
+
+### Migrating from 0.3.x
+
+`authenticateFirebase` moved out of the barrel — one line to migrate:
+
+```diff
+- import { authenticateFirebase } from 'express-route-forge';
++ import { authenticateFirebase } from 'express-route-forge/adapters/firebase';
+```
+
+`res.locals.firebaseUser` is preserved, but it is now a normalized
+`AuthIdentity` (`{ id, claims, raw }`); the decoded Firebase token is at
+`firebaseUser.claims`. See CHANGELOG.md for details.
+
 ## TODOs
 [ ] Finish README.md
 [ ] Test coverage for all modules

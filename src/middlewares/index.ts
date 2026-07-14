@@ -1,1 +1,2 @@
-export { default as authenticateFirebase } from './auth/authenticateFirebase';
+export * from './auth/authenticate';
+export * from './auth/types';

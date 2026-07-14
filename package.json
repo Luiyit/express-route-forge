@@ -1,6 +1,6 @@
 {
   "name": "express-route-forge",
-  "version": "0.3.6",
+  "version": "0.4.0",
   "description": "Express JS router builder",
   "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
@@ -40,6 +40,16 @@
       "types": "./dist/utils/jest.d.ts",
       "require": "./dist/utils/jest.cjs",
       "import": "./dist/utils/jest.esm.js"
+    },
+    "./adapters/firebase": {
+      "types": "./dist/adapters/firebase.d.ts",
+      "require": "./dist/adapters/firebase.cjs",
+      "import": "./dist/adapters/firebase.esm.js"
+    },
+    "./adapters/workos": {
+      "types": "./dist/adapters/workos.d.ts",
+      "require": "./dist/adapters/workos.cjs",
+      "import": "./dist/adapters/workos.esm.js"
     }
   },
   "engines": {
@@ -49,6 +59,7 @@
     "dist/",
     "LICENSE",
     "README.md",
+    "CHANGELOG.md",
     "package.json"
   ],
   "scripts": {
@@ -99,6 +110,22 @@
   "peerDependencies": {
     "express": "5.1.0",
     "firebase-admin": "13.6.0",
-    "joi": "18.0.1"
+    "joi": "18.0.1",
+    "@workos-inc/node": "^7.0.0",
+    "jose": "^5.0.0 || ^6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "firebase-admin": {
+      "optional": true
+    },
+    "joi": {
+      "optional": true
+    },
+    "@workos-inc/node": {
+      "optional": true
+    },
+    "jose": {
+      "optional": true
+    }
   }
 }
