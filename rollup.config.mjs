@@ -4,7 +4,7 @@ import typescript from '@rollup/plugin-typescript';
 import json from '@rollup/plugin-json';
 import path from 'path';
 
-const external = ['express', 'firebase-admin', 'joi'];
+const external = ['express', 'firebase-admin', 'joi', '@workos-inc/node', 'jose'];
 
 function createPlugins(declarationDir) {
   return [
@@ -88,4 +88,7 @@ export default [
   createBuildConfig('src/utils/packageJson/index.ts', 'utils/packageJson'),
   createBuildConfig('src/utils/firebase/admin/index.ts', 'utils/firebase/admin'),
   createBuildConfig('src/utils/jest/index.ts', 'utils/jest'),
+  // Opt-in auth adapters
+  createBuildConfig('src/adapters/firebase/index.ts', 'adapters/firebase'),
+  createBuildConfig('src/adapters/workos/index.ts', 'adapters/workos'),
 ];
